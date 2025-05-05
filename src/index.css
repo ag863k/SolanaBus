@@ -1,0 +1,119 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 266 90% 10%; /* Solana Dark */
+    --foreground: 266 10% 95%; /* Light Gray */
+
+    --card: 266 80% 15%; /* Slightly Lighter Dark */
+    --card-foreground: 266 10% 95%;
+
+    --popover: 266 90% 8%; /* Darker Popover */
+    --popover-foreground: 266 10% 95%;
+
+    --primary: 266 90% 60%; /* Solana Purple */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 160 90% 50%; /* Solana Teal */
+    --secondary-foreground: 266 90% 10%; /* Dark for contrast */
+
+    --muted: 266 50% 25%; /* Muted Purple/Blue */
+    --muted-foreground: 266 10% 65%; /* Lighter Muted Text */
+
+    --accent: 266 70% 35%; /* Accent Purple */
+    --accent-foreground: 266 10% 95%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 266 70% 25%; /* Purple/Blue Border */
+    --input: 266 70% 20%; /* Darker Input */
+    --ring: 160 90% 55%; /* Teal Ring */
+
+    --radius: 0.5rem;
+  }
+
+  .light {
+    --background: 0 0% 100%; /* White */
+    --foreground: 266 90% 10%; /* Dark Text */
+
+    --card: 0 0% 96%; /* Light Gray Card */
+    --card-foreground: 266 90% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 266 90% 10%;
+
+    --primary: 266 90% 60%; /* Solana Purple */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 160 80% 45%; /* Slightly Darker Teal for Light Mode */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 90%; /* Light Muted Gray */
+    --muted-foreground: 266 10% 40%; /* Darker Muted Text */
+
+    --accent: 0 0% 94%; /* Lighter Accent */
+    --accent-foreground: 266 90% 15%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 88%; /* Light Border */
+    --input: 0 0% 92%; /* Lighter Input */
+    --ring: 266 90% 65%; /* Lighter Purple Ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+   /* Leaflet CSS */
+  .leaflet-container {
+    @apply h-[300px] w-full rounded-md z-0; /* Ensure map has height and lower z-index */
+  }
+  .leaflet-control-zoom a {
+     @apply !bg-background !text-foreground !border-border;
+  }
+   .leaflet-control-attribution {
+     @apply !bg-background/70 !text-foreground/70 text-xs;
+   }
+   .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+      @apply !bg-popover !text-popover-foreground !shadow-lg;
+   }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-solana-gradient;
+  }
+
+  .bus-card {
+    @apply bg-card rounded-lg border p-4 shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  .seat {
+    @apply w-8 h-8 md:w-10 md:h-10 rounded border flex items-center justify-center cursor-pointer transition-colors duration-200 text-xs;
+  }
+  .seat-available {
+    @apply bg-muted/30 hover:bg-muted/60 border-muted;
+  }
+  .seat-selected {
+    @apply bg-primary text-primary-foreground border-primary hover:bg-primary/90;
+  }
+  .seat-booked {
+    @apply bg-destructive/30 text-destructive-foreground border-destructive cursor-not-allowed opacity-60;
+  }
+  .seat-sleeper {
+    @apply w-12 h-8 md:w-16 md:h-10; /* Example for sleeper */
+  }
+}
+  
