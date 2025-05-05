@@ -17,14 +17,8 @@
 
 - 🔍 Search buses by source, destination, and date
 - 🎫 Book tickets with real-time seat layout
-- 👤 User login & signup
+- 👤 User login & signup (SOON)
 - 📅 View booking history
-- 🧾 Admin panel to add/manage buses
-
----
-
-## 📁 Project Structure
-
 
 ---
 
